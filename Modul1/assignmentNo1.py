@@ -1,11 +1,20 @@
-upTo=int(input('upTo: '))
-for i in range(1,upTo+1):
-    if i%3 == 0 and i%5 == 0:
-        i = 'FizzBuzz'
-    elif i%3 == 0:
-        i = 'Fizz'
-    elif i%5 == 0:
-        i = 'Buzz'
-    else:
-        i = i
-    print(f'{i}',end=' ')
+inputText = str.upper(input("Masukan Text yang akan anda enkripsi, "))
+alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+lalphabet = (len(alphabet))
+linputText = (len(inputText))
+key = 4
+def enkripsi(): 
+    result = ' '
+    for i in range(linputText):
+        nText = inputText[i]
+        if nText in alphabet:
+            alphabetenk = alphabet.find(nText)
+            alphabetenk += key
+            if alphabetenk >= lalphabet:
+               alphabetenk %= lalphabet
+            nText = alphabet[alphabetenk]
+        result += f'{nText}'
+    return result
+
+finalresult = enkripsi()
+print(finalresult)
